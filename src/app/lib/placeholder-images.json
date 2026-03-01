@@ -1,0 +1,23 @@
+
+{
+  "placeholderImages": [
+    {
+      "id": "hero-dashboard",
+      "description": "Financial dashboard visualization with charts",
+      "imageUrl": "https://picsum.photos/seed/dashboard1/1200/600",
+      "imageHint": "finance dashboard"
+    },
+    {
+      "id": "profile-saver",
+      "description": "Person looking at savings account",
+      "imageUrl": "https://picsum.photos/seed/saver/400/300",
+      "imageHint": "saving money"
+    },
+    {
+      "id": "profile-spender",
+      "description": "Person shopping impulsively",
+      "imageUrl": "https://picsum.photos/seed/spender/400/300",
+      "imageHint": "shopping"
+    }
+  ]
+}
