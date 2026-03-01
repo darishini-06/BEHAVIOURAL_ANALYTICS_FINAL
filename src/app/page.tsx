@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect } from "react";
@@ -7,7 +6,8 @@ import { OverviewCharts } from "@/components/dashboard/OverviewCharts";
 import { BehaviorProfiles } from "@/components/dashboard/BehaviorProfiles";
 import { RiskScoreInfo } from "@/components/dashboard/RiskScoreInfo";
 import { NudgeTool } from "@/components/dashboard/NudgeTool";
-import { LayoutDashboard, Target, Users, Sparkles, TrendingUp, ChevronRight, Github } from "lucide-react";
+import { ImpulseSimulator } from "@/components/dashboard/ImpulseSimulator";
+import { LayoutDashboard, Target, Users, Sparkles, TrendingUp, ChevronRight, Github, Zap } from "lucide-react";
 import Link from "next/link";
 
 export default function Home() {
@@ -36,9 +36,11 @@ export default function Home() {
         </header>
 
         <main className="max-w-4xl text-center space-y-8 mt-12">
-          <Badge variant="secondary" className="px-4 py-1 text-sm rounded-full mb-4 animate-pulse">
-            Hackathon Project: Data Science & AI
-          </Badge>
+          <div className="flex justify-center">
+            <Badge variant="secondary" className="px-4 py-1 text-sm rounded-full mb-4 animate-pulse">
+              Hackathon Project: Data Science & AI
+            </Badge>
+          </div>
           <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-primary">
             Detecting Financial <span className="text-secondary">Impulse Behavior</span> in Young Adults
           </h1>
@@ -74,6 +76,7 @@ export default function Home() {
             </div>
             <div className="hidden md:flex gap-6">
               <Link href="#overview" className="text-sm font-medium hover:text-secondary">Overview</Link>
+              <Link href="#simulator" className="text-sm font-medium hover:text-secondary">Simulator</Link>
               <Link href="#profiles" className="text-sm font-medium hover:text-secondary">Profiles</Link>
               <Link href="#genai" className="text-sm font-medium hover:text-secondary">AI Nudges</Link>
             </div>
@@ -94,6 +97,15 @@ export default function Home() {
           </div>
           <RiskScoreInfo />
           <OverviewCharts />
+        </section>
+
+        {/* NEW: Impulse Simulator Section */}
+        <section id="simulator" className="space-y-6">
+          <div className="flex items-center gap-2 text-primary">
+            <Zap className="w-5 h-5 text-secondary" />
+            <h2 className="text-2xl font-bold">Impulse Decision Simulator</h2>
+          </div>
+          <ImpulseSimulator />
         </section>
 
         {/* Behavior Profiles Section */}
