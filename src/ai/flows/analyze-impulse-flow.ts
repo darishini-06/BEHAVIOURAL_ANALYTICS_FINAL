@@ -37,20 +37,17 @@ const impulseAnalysisPrompt = ai.definePrompt({
   name: 'impulseAnalysisPrompt',
   input: { schema: AnalyzeImpulseInputSchema },
   output: { schema: AnalyzeImpulseOutputSchema },
-  prompt: `You are a behavioral economist assistant. Analyze the following potential purchase for impulse triggers.
-
-Item: {{{itemName}}}
-Price: \${{{price}}}
-Current Mood: {{{mood}}}
-Is on Sale: {{#if isOnSale}}Yes{{else}}No{{/if}}
-
-Consider that:
-- Emotions like stress and boredom are high impulse triggers.
-- "Sales" create a false sense of urgency.
-- Young adults are particularly susceptible to social validation purchases.
-
-Provide a rating, a behavioral analysis, a cooling-off recommendation, and one alternative action.
-`,
+  // Using a regular string instead of a template literal to avoid JS interpolation issues with Handlebars
+  prompt: 'You are a behavioral economist assistant. Analyze the following potential purchase for impulse triggers.\n\n' +
+    'Item: {{{itemName}}}\n' +
+    'Price: ${{{price}}}\n' +
+    'Current Mood: {{{mood}}}\n' +
+    'Is on Sale: {{#if isOnSale}}Yes{{else}}No{{/if}}\n\n' +
+    'Consider that:\n' +
+    '- Emotions like stress and boredom are high impulse triggers.\n' +
+    '- "Sales" create a false sense of urgency.\n' +
+    '- Young adults are particularly susceptible to social validation purchases.\n\n' +
+    'Provide a rating, a behavioral analysis, a cooling-off recommendation, and one alternative action.',
 });
 
 const analyzeImpulseFlow = ai.defineFlow(
